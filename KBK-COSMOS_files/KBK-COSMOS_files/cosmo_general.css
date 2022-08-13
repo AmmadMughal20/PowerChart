@@ -1,0 +1,34 @@
+/*Theme Modifications*/
+/*.header-carrier{
+    background: #404040 !important;
+}*/
+.mega-dropdown-menu{
+    background-color: #f0f0f0 !important;
+}
+.dropdown-menu{
+    border-color: #bbbbbb !important;
+}
+.mega-dropdown-menu .dropdown-header{
+    color: #f0f0f0 !important;
+}
+.mega-dropdown-menu>li>ul>li>a{
+    color: #5A5A5A !important;
+}
+.mega-dropdown-menu>li ul>li>a:hover .menu-item-text,.mega-dropdown-menu>li ul>li>a:hover, .mega-dropdown-menu>li ul>li>a:focus{
+    -webkit-text-fill-color: unset !important;
+    background: #0556b3 !important;
+    color: white!important;
+}
+.mega-dropdown-menu>li ul>li>a:hover .menu-item-text, .mega-dropdown-menu>li ul>li>a:focus .menu-item-text {
+    color: white!important;
+}
+.dropdown-menu .divider{
+    background-color: #ccc !important;
+}
+#meter-pane ul li.cst,
+#meter-pane ul li.cst_in_store {
+	position: relative;
+	z-index: 0;
+	padding: 5px 20px 5px 62px;
+	cursor: pointer;
+}

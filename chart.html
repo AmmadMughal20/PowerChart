@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<script type="text/javascript" src="highcharts.js"></script>
+<script type="text/javascript" src="highcharts-3d.js"></script>
+<script type="text/javascript" src="highcharts-more.js"></script>
+<body>
+	<div class="box-body">
+		<div class="customer-chart">
+			<div id="events-alarms-chart-container62f67ece59753" >
+			</div>
+		</div>
+	</div>
+		<script type="text/javascript">
+
+			function datetimeStrToUTC(date_time_str) {
+				var now = new Date(date_time_str);
+				return Date.UTC(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours(), now.getMinutes(), now.getSeconds());
+			}
+			
+			var max_dat = Date.UTC(2022, 08, 12, 59, 59, 59);
+			var events_chart = new Highcharts.Chart({
+				chart: {
+					renderTo: 'events-alarms-chart-container62f67ece59753',
+					type: 'area',
+					zoomType: 'x'
+				},
+				title: {
+					text: 'Power ON/OFF'
+				},
+				subtitle: {
+					text: 'Date: 11-Aug-2022 - 12-Aug-2022'
+				},
+				xAxis: {
+					title: {
+						enabled: false,
+					},
+					type: 'datetime',
+				},
+				yAxis: {
+					max: 2,
+					title: {
+						enabled: false,
+					},
+					labels: {
+						formatter: function () {
+							if (this.value == 2) {
+								return 'OFF';
+							} else if (this.value == 0) {
+								return 'ON';
+							} else {
+								return '';
+							}
+						}
+					}
+				},
+				tooltip: { //tooltip data creation
+					enabled: true,
+					formatter: function () {
+						var label = 'ON';
+						if (this.y == 2) {
+							var label = 'OFF';
+						}
+						var now = new Date(this.x);
+						var hrs = now.getUTCHours();
+						var min = now.getUTCMinutes();
+						var sec = now.getUTCSeconds();
+						// return hrs+':'+min+':'+sec;
+						return 'Power <b>' +
+							(label) + '</b><br/> at ' + hrs + ':' + min + ':' + sec;
+					}
+				},
+				plotOptions: { //tooltip pointer plot options
+					area: {
+						marker: {
+							enabled: false,
+							symbol: 'circle',
+							radius: 2,
+							states: {
+								hover: {
+									enabled: true
+								}
+							}
+						}
+					}
+				},
+				legend: { //chart legends
+					enabled: false,
+				},
+				series: [{ //legend data
+					name: 'ON OFF',
+					lineWidth: 0, //bars stroke width
+					min: max_dat, 
+					animation: { // animation of chart rendering
+						easing: 'swing',
+						duration: 3000
+					},
+					fillColor: {
+						linearGradient: [0, 0, 0, 300],
+						stops: [
+							[0, 'rgb(200, 41, 41)'],
+							[1, 'rgb(100, 100, 100)']
+						]
+					},
+					color: '#AA2222',
+					data: [
+						[datetimeStrToUTC('Aug 11, 2022 00:00'), 2],
+						[datetimeStrToUTC('Aug 11, 2022 00:15'), 2],
+						[datetimeStrToUTC('Aug 11, 2022 00:15'), 0],
+						[datetimeStrToUTC('Aug 11, 2022 08:24'), 0],
+						[datetimeStrToUTC('Aug 11, 2022 08:24'), 2],
+						[datetimeStrToUTC('Aug 11, 2022 14:09'), 2],
+						[datetimeStrToUTC('Aug 11, 2022 14:09'), 0],
+						[datetimeStrToUTC('Aug 11, 2022 23:51'), 0],
+						[datetimeStrToUTC('Aug 11, 2022 23:51'), 2],
+						[datetimeStrToUTC('Aug 11, 2022 23:56'), 2],
+						[datetimeStrToUTC('Aug 11, 2022 23:56'), 0],
+						[datetimeStrToUTC('Aug 12, 2022 09:24'), 0],
+						[datetimeStrToUTC('Aug 12, 2022 09:24'), 2],
+						[datetimeStrToUTC('Aug 12, 2022 10:23'), 2],
+						[datetimeStrToUTC('Aug 12, 2022 10:23'), 0],
+						[datetimeStrToUTC('Aug 12, 2022 21:24'), 0],
+						[datetimeStrToUTC('Aug 12, 2022 21:24'), 0],
+
+					]
+				}]
+			});
+		</script>
+		<script>
+			customer_tab_start_date = $("#eventsalarms-date-from").val();
+			customer_tab_end_date = $("#eventsalarms-date-to").val();
+		</script>
+	
+</body>
+</html>

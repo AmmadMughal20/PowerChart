@@ -1,0 +1,138 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 25, 2017, 10:06:30 AM
+    Author     : Ismail
+*/
+
+/*main card style*/
+.card {
+    max-width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    background: #fff;
+    padding: 0;
+    border: none;
+    border-radius: .5rem;
+    box-shadow: 0 1px 3px 0 #d4d4d5,0 0 0 1px #d4d4d5;
+    transition: box-shadow 0.1s ease, transform 0.1s ease;
+    z-index: '';
+    margin-bottom: 30px;
+}
+.card a,
+.cards > .card a {
+    cursor: pointer;
+}
+
+.card > .card-content,
+.cards > .card > .card-content {
+    flex-grow: 1;
+    border: none;
+    background: 0 0;
+    margin: 0;
+    padding: 1em;
+    box-shadow: none;
+    font-size: 1em;
+    border-radius: 0;
+}
+.card > .card-content:after,
+.cards > .card > .card-content:after {
+    display: block;
+    height: 0;
+}
+.card > .card-content > h4.card-title,
+.cards > .card > .card-content > h4.card-title {
+    display: block;
+    margin: 0px;
+    font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+.card > .card-content > h6.card-meta,
+.cards > .card > .card-content > h6.card-meta {
+    margin-top: 0.2em;
+}
+.card > .card-content > h6.card-meta + .card-description,
+.cards > .card > .card-content > h6.card-meta + .card-description,
+.card > .card-content > h4.card-title + .card-description,
+.cards > .card > .card-content > h4.card-title + .card-description{
+    margin-top: 1em;
+}
+.card > .card-content > .card-description,
+.cards > .card > .card-content > .card-description {
+    clear: both;
+    margin-top: 1em;
+}
+.card > .card-content p,
+.cards > .card > .card-content p {
+    margin: 0 0 0.5em;
+}
+.card > .card-content p:last-child,
+.cards > .card > .card-content p:last-child {
+    margin-bottom: 0;
+}
+.card > .card-content > a.card-title,
+.cards > .card > .card-content > a.card-title {
+    color: rgba(0, 0, 0, 0.85);
+}
+.card > .card-content > a.card-title:hover,
+.cards > .card > .card-content > a.card-title:hover {
+    color: #1e70bf;
+}
+
+/*card with border*/
+.card.card-centred-text {
+    text-align: center;
+    padding: 50px 50px;
+}
+/*card with border*/
+.card.card-with-border .card-content {
+    position: relative;
+    padding: 15px 15px 25px 15px;
+}
+.card.card-with-border::after {
+    position: absolute;
+    display: block;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    content: '';
+    top: 5px;
+    left: 5px;
+    z-index: 1;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+} 
+/*bg and text*/
+.black-grey {
+    color:#7a7a7a !important;
+    background-color:#eff0f2 !important;
+}
+.text-white,.text-white-hover:hover
+{
+    color:#7a7a7a !important;
+}
+
+
+.weekDays-selector input {
+  display: none!important;
+}
+
+.weekDays-selector input[type=checkbox] + label {
+  display: inline-block;
+  border-radius: 6px;
+  background: #dddddd;
+  height: 40px;
+  width: 30px;
+  margin-right: 3px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.weekDays-selector input[type=checkbox]:checked + label {
+  background: #2AD705;
+  color: #ffffff;
+}
